@@ -87,6 +87,8 @@ background-size: contain; // ganz gross und für ganz seite
 
  border: 10px solid red; // hier mach füt ganze border und alle seite
  border-radius:20px 15px;
+ box-sizing:border-box;// element neben einandere benutz mann für alle element (* body)
+ border-radius:50% ;  // cercile
 
  outline: 10px solid red;
  ```
@@ -115,10 +117,12 @@ background-size: contain; // ganz gross und für ganz seite
 
  ## Text-Shadow
  ```js
-//  text-shadow(H V Blur Color)
+//  text-shadow(H V Blur Color spread)
 //  H: von recht nach link + (- ist gegenteil)
 //  V : von oben nach unten + (- ist gegenteil)
-//  Blur: für die color Nebel( veschwommen)
+//  Blur: für die color Nebel( veschwommen) 
+box-shadow: inset 0px(H) 0px(V) 4px(Blur) 0px(inset) red(Color)
+// spread  outset: die farbe auserhalb   inset:  die farbe innerhalb
 
 text-shadow : +2px  +2px 1px red;
  ```
@@ -201,9 +205,92 @@ word-break:breack-word; // hier macht stop bei eigne wort bei link und geht line
 
 ## List-styling 
 ```js
-list-style-posion:outside; // macht die inhalt auserhalb gackground
-list-style-posion:inside;// macht die inhalt innerhalb gackground
+list-style-position:outside; // macht die inhalt auserhalb gackground
+list-style-position:inside;// macht die inhalt innerhalb gackground
 list-style: none ;// für liste ignorieren die ...
+```
+##  Z-index
+```js
+postion:absolute;
+z-index:1;// hier die ganz hinten
+z-index:2; // mitte
+z-index:3;// vorne
+```
+## Pseudo Classes
+```js
+a:hover{color:red;} 
+// wenn wir mit mous hover ändert color zu red
+.class:checked +lable{color :red;}
+// wenn auf checkbox klicken ändert das text neben zu red
+.class:checked {display:none;}
+// wenn auf checkbox klicken  versteckt alle text neben chekbox
+.input:focus{border-color:yellow;}
+// wenn mous auf dem input und beggint zu schreiben ändert border zu yellow
+```
+## pseudo Element
+```js
+.class::first-letter{background-color:red}
+// für erste letter
+.class::first-line{background-color:red}
+// für erste line
+
+.class::befor{postion:relative ; content:"hello";color :red}
+// hier zeigt hello befor  .class
+.class::after{postion:absolute;content:"hello";color :red}
+// hier zeigt hello after  .class
+```
+## Var Root
+```js
+:root{
+    --mainColor:red;
+    --meinPadding:20px;
+}
+pading:Var(--meinPading);
+color:(--meinColor)
+
+Var(--meinColor,black) // wenn meinColor nicht verfügbar dann ändern zu black
+```
+## Transition 
+```js
+```
+## Flex-Box
+```js
+display: flex;
+
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-wrap: wrap-reverse;
+
+   flex-direction: column;
+   flex-direction: column-reverse;
+   flex-direction: row;
+   flex-direction: row-reverse;
+
+    flex-flow: row wrap;
+
+     justify-content: center;
+     justify-content: flex-start;
+     justify-content: flex-end;
+     justify-content: space-around;
+     justify-content: space-between;
+
+    align-items: center;
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: stretch;
+    align-items: baseline;
+
+    align-content: space-between;
+    align-content: space-around;
+    align-content: stretch;
+    align-content: center;
+    align-content: flex-start;
+    align-content: flex-end;
+
+```
+
+## Grid
+```js
 ```
 
 

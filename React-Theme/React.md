@@ -14,6 +14,15 @@
     -   -   cd myapp
     -   -   npm start / npm run start
     -   npm install react@latest react-dom@latest // dass für die neu react vision istallieren
+- ## oder
+
+- npm init -y für package.json installieren
+- npm i -D nodemon für node-modules installieren
+-   "scripts": {
+    "dev": "nodemon serverApi.js",
+    "start": "node serverApi.js"
+  }, wir äderen wenn wir npm start benuzt oder npm run dev
+  - dann erstellen wir App.js und ...
 
 ## cod install
 

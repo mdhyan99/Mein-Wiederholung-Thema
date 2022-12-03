@@ -291,6 +291,55 @@ display: flex;
 
 ## Grid
 ```js
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 80px 200px auto 40px;
+  grid-template-rows: 80px 200px;
+
+  justify-content: space-evenly; // von link nach recht
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: center;
+  justify-content: start;
+  justify-content: end;
+
+  align-content: center;  // von oben nach unten
+  align-content: space-evenly;
+  align-content: space-around;
+  align-content: space-between;
+
+   grid-column:; // von link navh recht
+   grid-column: 1 / 5; 
+   // nimmt 4 platz beginnt von platz 1 endet bei 5
+   grid-column: 1 / span 3;
+   // nimmt 3 platz beginnt von platz 1 und nimmt 3 platz
+   grid-column: 2 / span 3;
+   // nimmt 3 platz beginnt von platz 2 und nimmt 3 platz
+
+   grid-row: ; //von oben nach unten
+   grid-row: 1 / 4;
+   // nimmt 3 platz beginnt von platz 1 endet bei 4
+   grid-row: 1 / span 2;
+   // nimmt 2 platz beginnt von platz 1 und nimmt 2 platz
+
+    grid-area: ;// für row und colum
+    grid-area: 1 / 2 / 5 / 6;
+    // beginnt row 1 und colum 2  endet row 5 und  colum 6 
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  grid-template-areas:
+    'header header header header header header' // nimmt 6 platz
+    'menu main main main right right'  
+    'menu footer footer footer footer footer';
+}
+   
+
 ```
 
 

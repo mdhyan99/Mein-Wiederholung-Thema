@@ -1,10 +1,16 @@
 ## Erste Schritt
 - wir erstellen datei.js 
 - dann schreiben wir in Terminal npm i express
+- npm init -y für package.json installieren
+- npm i -D nodemon für node-modules installieren
+-   "scripts": {
+    "dev": "nodemon serverApi.js",
+    "start": "node serverApi.js"
+  }, wir äderen wenn wir npm start benuzt oder npm run dev
 - dann nodemon datei.js
 - dann öfnnen wir Thunder client oder posts
 - dann schreiben in datei.js
-- wir schreiben in Thunder localhost:4444/.....  dann senden
+- wir schreiben in Thunder oder postes  localhost:4444/.....  dann senden
 
 ```js
 const express = require("express");

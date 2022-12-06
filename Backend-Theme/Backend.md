@@ -59,7 +59,7 @@ app.get("/is-number/:number", (request, response) => {
 });
 ```
 
-## Wichtige Codes
+## GET POST PUT PATCH DELETE 
 
 ```js
 const express = require("express");
@@ -68,6 +68,14 @@ server.listen(4002);
 
 let notizen =[1,2,3]
 let user =["a","b","c"]
+
+// GET      --->    get data
+// post     --->    create data
+// Delete   --->    delete  data
+// Put      --->    update data
+// Patch    --->    bearbeiten data
+
+
 server.get("/users", (req,res) => {res.json(users) }); // ["a","b","c"]
 //Notiz lesen
 
@@ -93,6 +101,9 @@ server.delete("/users", (req,res) => {
     users.pop()
     res.json() });
 // Notiz löschen (delete)
+
+
+
 
 ```
 

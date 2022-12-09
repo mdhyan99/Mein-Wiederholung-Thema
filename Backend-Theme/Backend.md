@@ -75,7 +75,8 @@ let user =["a","b","c"]
 // Put      --->    update data
 // Patch    --->    bearbeiten data
 
-
+// req ist object anfrage von Api (Daten)
+// res für  antwort 
 server.get("/users", (req,res) => {res.json(users) }); // ["a","b","c"]
 //Notiz lesen
 
@@ -141,3 +142,13 @@ server.delete("/users/:index", (req,res) => {
 5xx => Server Error
 500 Server Error
 ```
+
+## Use 
+```js
+app.use((req,res,next)=> {
+    if(req.url === '/').res.end('hello from hom')
+    else if(req.url === '/about').res.end('hello from about')
+    else res.end('404 not found')
+})
+```
+

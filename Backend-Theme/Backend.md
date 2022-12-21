@@ -7,12 +7,6 @@
 -   npm i express
 
 -   
--   "scripts": {
-    "dev": "nodemon serverApi.js",
-    "start": "nodemon serverApi.js"
-    }, wir äderen wenn wir npm start benuzt oder npm run dev
-    -  wir äderen erste Zeile 
-    "type":"module"
 
 -   dann nodemon datei.js
 -   dann öfnnen wir Thunder client oder posts
@@ -22,11 +16,19 @@
 
 
 - Oder
-- 1- npm init --yes
+- 1- npm init -y
 - 2-  npm i express
-- 3- npm i -g nodemon
-- 4- dann schreiben wir nur nodemon oder nodemon server
+- 3- npm i -D nodemon
 - dann öffnen wir posts und schreiben wir localhost:......
+-   "scripts": {
+    "dev": "nodemon serverApi.js",
+    "start": "nodemon serverApi.js"
+    }, wir äderen wenn wir npm start benuzt oder npm run dev
+    -  wir äderen erste Zeile 
+    "type":"module"
+
+- 4- dann schreiben wir (npm run dev) oder  (nodemon serverApi.js) oder ( npm run start)
+- 
 ```js
 const express = require("express");
 const app = express();
@@ -59,6 +61,16 @@ app.get("/is-number/:number", (request, response) => {
 });
 ```
 
+## Port
+- 1- wir erstellen datei .env
+- in .env schreiben wir :
+- PORT = 4000
+- 
+- in main.js schreiben wir 
+- import dotenv from "dotenv"
+- dotenv.config()
+
+const port = process.env.PORT
 ## GET POST PUT PATCH DELETE 
 
 ```js

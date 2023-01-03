@@ -1,0 +1,44 @@
+
+section {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+}
+nav{
+    background-color:rgba(181, 175, 175, 0.81);
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: 1px solid rgb(34, 34, 34);
+}
+nav img {
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 50px;
+}
+.uberschrift {
+    font-size: 25px;
+    font-weight: 900;
+    color: darkgreen;
+    width: 350px;
+
+}
+li span ,p {
+    font-weight: 900;
+    padding-bottom: 10px;
+    color: rgb(2, 2, 2);
+}
+.uldaten{
+    list-style: none;
+    padding-left: 17px;
+}
+.info{
+    font-size: 15px;
+    font-weight: 700;
+}
+main{
+    padding-left: 20px;
+}
+a {
+    text-decoration: none;
+}

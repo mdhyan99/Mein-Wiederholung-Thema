@@ -24,3 +24,10 @@ https://expressjs.com/en/5x/api.html
 - ## link für job suchen
    www.stepstone.de
    www.indeed.de
+
+   ## backend
+   https://www.db-fiddle.com/ 
+   für SQL
+   
+   ## fertege fetch
+   https://jsonplaceholder.typicode.com/

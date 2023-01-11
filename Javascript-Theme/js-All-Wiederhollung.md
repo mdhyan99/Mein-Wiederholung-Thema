@@ -1,3 +1,5 @@
+## Für random Color
+ <!-- var randomColor = Math.floor(Math.random()*16777215).toString(16) -->
 # Mutator Methods  in Array.
 
 ## wie kann mann die console für datei.js zeigen

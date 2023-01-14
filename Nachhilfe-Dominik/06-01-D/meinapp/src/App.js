@@ -9,6 +9,7 @@ import Video from "./component/Video";
 import Foto from "./component/Foto";
 import About from "./component/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Product from "./component/Product";
 
 function App() {
     // const handelClick = () => console.log("hallo4");
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/foto" element={<Foto />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/video" element={<Video />} />
+                    <Route path="/product" element={<Product />} />
                 </Routes>
                 <Footer />
                 {/* <Cards /> */}

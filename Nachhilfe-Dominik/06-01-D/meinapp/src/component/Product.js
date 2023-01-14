@@ -1,13 +1,19 @@
-import React from "react";
+import React ,{useState} from "react";
 import Card from "react-bootstrap/Card";
 import Button from "./Button/Button";
 import { BsHeart } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
+import { useParams} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Product = ({ id, title, url, imag }) => {
+const Product = ({id,  title, url, imag }) => {
+
     return (
+        
         <Card>
+            <Link className="link" to={"/product/" + id}> 
             <Card.Img style={{ height: "250px" }} variant="top" src={imag} />
+            </Link>
 
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

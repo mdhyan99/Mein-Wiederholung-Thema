@@ -31,3 +31,5 @@ https://expressjs.com/en/5x/api.html
    
    ## fertege fetch
    https://jsonplaceholder.typicode.com/
+   ## emoje
+   https://unicode.org/emoji/charts/full-emoji-list.html#1f92d

@@ -27,23 +27,23 @@ function App() {
     }, []); // wenn wir die Seite offnen wir sehen keien Termin
 
     return (
+                 <BrowserRouter>
         <Container className="py-5">
                 <div className="font color-body">
                     <DatesCount person={personData} />
-                 {/* <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/termin" element={<Termin />} />
                         <Route path="/datesaction" element={<DatesAction />} />
                     </Routes>
-                    </BrowserRouter>  */}
                     <DatesList
                         person={personData}
                         entfernVonList={entfernVonList}
-                    />
+                        />
                     <DatesAction onDelete={onDelete} onViewData={onViewData} />
                 </div>
             </Container>
+                        </BrowserRouter>  
     );
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Termin = () => {
   return (
-    <div>Termin</div>
+    <div>fgfhgf</div>
   )
 }
 

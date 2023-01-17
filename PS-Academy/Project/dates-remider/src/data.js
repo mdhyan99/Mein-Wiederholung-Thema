@@ -1,8 +1,8 @@
 export const person = [
     {
         id: "1",
-        name: "Mohamed ",
-        date: "um 18:00 Uhr  ",
+        name: "Domink ",
+        date: "Mittwoch um 18:00 Uhr oder 18:30 Uhr  ",
         img: "p1.webp",
     },
     {

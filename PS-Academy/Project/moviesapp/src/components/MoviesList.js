@@ -13,8 +13,9 @@ const MoviesList = ({movies,getPage,pageCount}) => {
           return(  <CardMovie key={mov.id} mov={mov}/>)
         })):<h2 className="text-center p-5">es gibt keinen Movies</h2>
       }
-    
-   <Paginations getPage={getPage} pageCount={pageCount} />
+    {movies.length >=1 ? 
+   <Paginations getPage={getPage} pageCount={pageCount} /> : null  }
+   {/* hier wenn wir suchen und keine filmen zeigt nicht Pagination  */}
     </Row>
   );
 };

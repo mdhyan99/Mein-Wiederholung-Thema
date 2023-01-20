@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap";
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import axios from 'axios'
 
 
+import Api from "./Api";
 import NavBar from "./components/NavBar";
 import MoviesList from "./components/MoviesList";
 import MoviesDetails from "./components/MoviesDetails";
@@ -16,17 +16,19 @@ function App() {
 
   //get all movies by axios 
   const getAllMovies = async () => {
-    const res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=ar")
-    setMovies(res.data.results)
+    const data = await Api.getAllMovies()
+    // axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=en")
+    setMovies(data.results)
 
-    setPageCaount(res.data.total_pages) // wir haben gespeichert für zahl page 
+    setPageCaount(data.total_pages) // wir haben gespeichert für zahl page 
   }
 
   // get current page für wie viel page haben wir
   const getPage = async (page) => {
-    const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=ar&page=${page}`)
-    setMovies(res.data.results)
-    setPageCaount(res.data.total_pages) // wir haben gespeichert für zahl page 
+    const data = await Api.getPage(page)
+    // (`https://api.themoviedb.org/3/movie/popular?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=en&page=${page}`)
+    setMovies(data.results)
+    setPageCaount(data.total_pages) // wir haben gespeichert für zahl page 
   }
   useEffect(() => {
     getAllMovies();
@@ -37,9 +39,10 @@ function App() {
     if (word === "") {
       getAllMovies();
     } else {
-      const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c0f4ff63599fb8807220dec0f8cf9c41&query=${word}&language=ar`)
-      setMovies(res.data.results)
-      setPageCaount(res.data.total_pages) // wir haben gespeichert für zahl page wenn wir suchen auf ein seite
+      const data= await Api.search(word)
+      // (`https://api.themoviedb.org/3/search/movie?api_key=c0f4ff63599fb8807220dec0f8cf9c41&query=${word}&language=en`)
+      setMovies(data.results)
+      setPageCaount(data.total_pages) // wir haben gespeichert für zahl page wenn wir suchen auf ein seite
     
     }
   }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import Api from "../Api";
 
 
 const MovieDetails = () => {
@@ -10,10 +11,11 @@ const MovieDetails = () => {
 
     //get  movie by details
     const getMovieDetails = async () => {
-        const res = await axios.get(
-            `https://api.themoviedb.org/3/movie/${param.id}?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=ar`
-        );
-        setMovie(res.data);
+        const data = await Api.getMovieDetails(param.id)
+        // (
+        //     `https://api.themoviedb.org/3/movie/${param.id}?api_key=c0f4ff63599fb8807220dec0f8cf9c41&language=en`
+        // );
+        setMovie(data);
     };
 
     useEffect(() => {
@@ -78,7 +80,8 @@ const MovieDetails = () => {
                             StartSeite
                         </button>
                     </Link>
-                    <a href={movie.homepage}>
+                    {
+                        (movie.homepage!=="" &&  <a href={movie.homepage}>
                         <button
                             style={{
                                 backgroundColor: "#b45b35",
@@ -88,7 +91,20 @@ const MovieDetails = () => {
                         >
                             Showfilm
                         </button>
-                    </a>
+                    </a> )
+                    }
+                        {/* <a href={movie.homepage}>
+                        <button
+                            style={{
+                                backgroundColor: (movie.homepage!=="")?"#b45b35" : "gray",
+                                border: "none",
+                            }}
+                            className="btn btn-primary"
+                        >
+                            Showfilm
+                        </button>
+                    </a>  */}
+                  
                 </Col>
             </Row>
         </div>

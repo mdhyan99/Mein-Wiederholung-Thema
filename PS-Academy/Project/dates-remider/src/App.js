@@ -1,15 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState ,useEffect} from "react";
 import { Container } from "react-bootstrap";
-import { person } from "./data";
+import person  from "./data.json";
 import DatesCount from "./components/DatesCount";
 import DatesList from "./components/DatesList";
-import DatesAction from "./components/DatesAction";
 import Termin from "./components/Termin";
-import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// const initialpersonenData = localStorage.getItem("personendata")?JSON.parse(localStorage.getItem("personendata"))
+// : [];
+
 function App() {
+    //   localStorage.clear()
+    //   localStorage.setItem("name", data.person)
+
+    console.log(9078 +1920, "ff");
+    console.log((7392 + (260000/5800) +(1205000/6030)+(607000/6250)+(585000/6400)+(1595000/6350) + 6 +(62500/6300) +(1210000/6220)+(1220000/6100)+(600000/6100)+(1835000/6220)+(630000/6390)+(1300000/6470)+560 +(1960000/6420)+(650000/6480)+9+(1787000/6420)).toFixed(2) );
     const [personData, setPersonData] = useState(person);
+    // const [data, setData] = useState(initialpersonenData);  247 
+
+    // useEffect(() => {
+    //     localStorage.setItem("personendat", JSON.stringify(data));
+    // }, [data]);
+
+   
     const onDelete = () => {
         setPersonData([]);
     };
@@ -21,29 +34,39 @@ function App() {
         setPersonData((currItems) =>
             currItems.filter((item) => item.id !== id)
         );
+    
     };
-    useEffect(() => {
-        setPersonData([]);
-    }, []); // wenn wir die Seite offnen wir sehen keien Termin
+    // useEffect(() => {  
+    //     setPersonData([])
+    //  }, []); // wenn wir die Seite offnen wir sehen keien Termin
 
     return (
-                 <BrowserRouter>
         <Container className="py-5">
+            
+                <BrowserRouter>
                 <div className="font color-body">
-                    <DatesCount person={personData} />
+                    <DatesCount  person={personData} />
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/termin" element={<Termin />} />
-                        <Route path="/datesaction" element={<DatesAction />} />
-                    </Routes>
-                    <DatesList
-                        person={personData}
-                        entfernVonList={entfernVonList}
+                        <Route
+                            path="/"
+                            element={
+                                
+                                <DatesList
+                             
+                                    person={personData}
+                                    entfernVonList={entfernVonList}
+                                    onDelete={onDelete} onViewData={onViewData}
+                                    setPersonData={setPersonData}
+                                />
+                            }
                         />
-                    <DatesAction onDelete={onDelete} onViewData={onViewData} />
+                        <Route path="/termin/:id" element={<Termin person={personData}  entfernVonList={entfernVonList}/>} />
+                    
+                    </Routes>
                 </div>
+        </BrowserRouter>
+                       
             </Container>
-                        </BrowserRouter>  
     );
 }
 

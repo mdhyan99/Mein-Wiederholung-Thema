@@ -1,51 +1,130 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Termin from "./Termin";
-
+import image from "../image/p1.webp";
 import { Col, Row } from "react-bootstrap";
+import DatesAction from "./DatesAction";
 
-const DatesList = ({ person, entfernVonList }) => {
+const DatesList = ({
+    person,
+    entfernVonList,
+    onDelete,
+    onViewData,
+    setPersonData,
+}) => {
     // const { id } = useParams();
     // const product = person.find((i) => i.id === +id);
+    const nameChange = (e, i) => {
+        const abDatesPerson = [...person];
+        abDatesPerson[i] = { ...person[i], name: e.target.value };
+        setPersonData(abDatesPerson);
+    };
+    const dateChange = (e, i) => {
+        const abDatesPerson = [...person];
+        abDatesPerson[i] = { ...person[i], date: e.target.value };
+        setPersonData(abDatesPerson);
+    };
+    const beschreibungChange = (e, i) => {
+        const abDatesPerson = [...person];
+        abDatesPerson[i] = { ...person[i], beschreibung: e.target.value };
+        setPersonData(abDatesPerson);
+    };
+
+    console.log(person);
     return (
         <Row className="justify-content-center">
-            <Col sm="8" className="">
-                <div className="rectangle p-2">
+            <Col sm="12" className="">
+                <div className="rectangle p-2 ">
                     {person.length ? (
-                        person.map((item) => {
+                        person.map((item, index) => {
                             return (
                                 // <div key={Math.random()} className="d-flex wenn kein id
 
                                 <div
                                     key={item.id}
-                                    className="d-flex justify-content-between  border-bottom mx-3 my-2"
+                                    className="  border-bottom mx-3 my-2   "
                                 >
-                                    {" "}
-                                    <img
-                                        className="img-avatar"
-                                        src="p1.webp"
-                                        alt="person"
-                                    />
-                                    <div className="px-3">
-                                        <p className="d-inline fs-5">
-                                            {item.name}
-                                        </p>
-                                        <p className=" fs-6">{item.date}</p>
+                                    <div className="avatar">
+                                        <img
+                                            className="img-avatar"
+                                            src={image}
+                                            alt="person"
+                                        />
                                     </div>
-                                    <button
-                                        className="btn btn-primary "
-                                        onClick={() => entfernVonList(item.id)}
-                                    >
-                                        löchen
-                                    </button>
-                                    <Link to="/termin ">
+                                    <form>
+                                        <label>
+                                            {" "}
+                                            <span>Termin Mit :</span>{" "}
+                                        </label>
+                                        <br />
+                                        <input
+                                            className="inpt"
+                                            value={item.name}
+                                            onChange={(e) =>
+                                                nameChange(e, index)
+                                            }
+                                            type="text"
+                                            placeholder=" Name"
+                                            width="120px"
+                                        />
+                                        <br />
+                                        <label>
+                                            <span>Termin-Datum :</span>{" "}
+                                        </label>{" "}
+                                        <br />
+                                        <input
+                                         
+                                            className="inpt"
+                                            value={item.date}
+                                            onChange={(e) =>
+                                                dateChange(e, index)
+                                            }
+                                            type="text"
+                                            placeholder=" Datum"
+                                        />
+                                        <label>
+                                            <span>Termin Beschreibung :</span>{" "}
+                                        </label>{" "}
+                                        <br />
+                                        <textarea
+                                            className="inpt"
+                                            rows="2"
+                                            cols="0"
+                                            value={item.beschreibug}
+                                            onChange={(e) =>
+                                                beschreibungChange(e, index)
+                                            }
+                                            placeholder=" Drück auf zeigen dann siehe die Beschreibung  "
+                                        ></textarea>
 
-                                    <button className="btn btn-primary ">
-                                        zeigen
-                                    </button>
-                                    </Link>
-                                    {/* <Link to="/termin" >terg</Link> */}
+                                        
+                                          
+                                       
+                                    </form>
+                                    <br />
+
+                                    {/* style={{
+                              display: ( (<Link to={"/termin/" + item.id}>
+                                             <button className="btn btn-primary ">
+                                                 zeigen
+                                             </button>
+                                         </Link>))?"none" : "block",
+                          }} */}
+
+                                    <div className="d-flex justify-content-between">
+                                        <Link to={"/termin/" + item.id}>
+                                            <button className="btn btn-primary ">
+                                                zeigen
+                                            </button>
+                                        </Link>
+                                        <button
+                                            onClick={() =>
+                                                entfernVonList(item.id)
+                                            }
+                                            className="btn btn-primary my-3 "
+                                        >
+                                            Löchen
+                                        </button>
+                                    </div>
                                 </div>
                             );
                         })
@@ -54,6 +133,7 @@ const DatesList = ({ person, entfernVonList }) => {
                             🤭 Es gibt keine Termine 🤭{" "}
                         </h2>
                     )}
+                    <DatesAction onDelete={onDelete} onViewData={onViewData} />
                 </div>
             </Col>
         </Row>

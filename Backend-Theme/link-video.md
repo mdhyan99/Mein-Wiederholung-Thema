@@ -33,3 +33,14 @@ https://expressjs.com/en/5x/api.html
    https://jsonplaceholder.typicode.com/
    ## emoje
    https://unicode.org/emoji/charts/full-emoji-list.html#1f92d
+
+   ## Api Key
+   http://www.omdbapi.com/ 
+   wir rücken auf Api-key 
+   dann schreiben unsere Email 
+   dann bekommen wie Key
+
+   ## kling -song dowenload
+   https://kostenloseklingeltone.de/
+
+   mp3

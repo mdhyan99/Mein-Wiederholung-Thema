@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import "./index.css";
+import {  Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
 import { Header } from "./components/Header";
 import Catagory from "./components/Catagory";
 import CardList from "./components/CardList";
+import Product from "./components/Product";
 import { items } from "./data";
 
 function App() {
     const [itemsData, setItemsData] = useState(items);
 
     // get all cat unig
-    const allCategory = ["all-menu", ...new Set(items.map((i) => i.category))];
+    const allCategory = ["All", ...new Set(items.map((i) => i.category))];
 
     // filter by category
     const filterbyCategory = (cat) => {
-        if (cat === "all-menu") {
+        if (cat === "All") {
             setItemsData(items);
         } else {
+            
             const newArr = items.filter((item) => item.category === cat);
             setItemsData(newArr);
         }
@@ -36,14 +39,28 @@ function App() {
 
     return (
         <div className="color-body font">
+            
             <NavBar filterbySearch={filterbySearch} />
-            <Container>
                 <Header />
-                <Catagory
+                
+            <Catagory
                     filterbyCategory={filterbyCategory}
-                    allCategory={allCategory}
-                />
-                <CardList itemsData={itemsData} />
+                    allCategory={allCategory} 
+                    />  
+                    
+            <Container>
+                {/* <Product  />  */}
+                {/* <CardList itemsData={itemsData} />  */}
+            <Routes>
+
+             <Route path="/:catagrory" element={<Catagory
+                    filterbyCategory={filterbyCategory}
+                    allCategory={allCategory} 
+                    />}/>  
+                <Route path="/" element={<CardList itemsData={itemsData} />} />
+                  <Route path="/product/:id" element={<Product itemsData={itemsData} />} />
+                
+                </Routes>
             </Container>
         </div>
     );

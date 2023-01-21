@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row, Card } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const CardList = ({itemsData} ) => {
     return (
@@ -11,6 +12,8 @@ const CardList = ({itemsData} ) => {
                         <Col 
                         key={item.id}
                         sm="12" className="mb-3"> 
+                        
+
                         <Card className="d-flex flex-row">
                             <Card.Body>
                                 <Card.Title className="d-flex justify-content-between">
@@ -23,8 +26,12 @@ const CardList = ({itemsData} ) => {
                                     </div>
                                 </Card.Text>
                             </Card.Body>
+                            <Link to={"/product/"+item.id}>
+
                             <Card.Img   variant="link" className="img-item"  src={item.imgUrl} />
+                            </Link>
                         </Card>
+
                     </Col>
                     )
 

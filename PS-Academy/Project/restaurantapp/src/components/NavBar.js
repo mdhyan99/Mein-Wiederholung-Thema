@@ -1,6 +1,6 @@
 import React,{useState} from "react";
-import { Container ,Form, FormControl, Nav, Navbar, Row } from "react-bootstrap";
-
+import { Container , FormControl, Nav, Navbar, Row } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 const NavBar = ({filterbySearch}) => {
     const [searchValue, setSearchValue] = useState("");
 
@@ -10,12 +10,13 @@ const NavBar = ({filterbySearch}) => {
       filterbySearch(searchValue)
     //   setSearchValue('')// die löcht was in input schreibt nach dem search
  }
-    return (
-        <Row sm="12">
+            return (
+                <Row sm="12">
+            
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
                     <Navbar.Brand href="#">
-                        <div className="brand-color">Rayan Restaurant</div>
+                        <div className="brand-color">Zena Restaurant</div>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -34,8 +35,10 @@ const NavBar = ({filterbySearch}) => {
                                 value={searchValue}
                             />
                             <button onClick={onSearch}  className="btn-search">Search</button>
+  <button className="btn-korb">Waren</button>
                             </div>
-                           
+                            <div >
+  </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

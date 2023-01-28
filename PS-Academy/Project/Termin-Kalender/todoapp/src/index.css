@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #46529d;
+    color: #fff;
+}
+.text-center1 {
+    text-align: center;
+    color: coral;
+}
+
+.listItems {
+    margin-top: 50px;
+    background: #fff;
+    color: #46529d;
+    text-align: center;
+    
+
+}
+.listItems p {
+    margin: 0;
+    padding: 10px 0px;
+  }
+.listItems span {
+    display: inline-block;
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 12px;
+    border: 0.3px solid #ccc;
+   
+}
+.listItems span.title {
+    background: #2ebaee;
+    color: #fff;
+}
+.imges {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.listItems span.name,
+form input[type="text"] {
+    width: 20%;
+
+}
+.listItems span.datum,
+form input[type="text"] {
+    width: 15%;
+
+}
+.listItems span.uhr,
+form input[type="text"] {
+    width: 15%;
+
+}
+
+.listItems span.beschreibung,
+form input[type="text"] {
+    width: 40%;
+
+}
+.listItems span.action,
+form input[type="submit"] {
+    width: 10%;
+
+}
+.listItems span.icon {
+    background: #2ebaee;
+    cursor: pointer;
+}
+
+.rectangle {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 1px 4px 4px 1px rgba(85, 85, 85, 0.25);
+}
+
+.btn-style {
+    width: 150px;
+    margin: 10px;
+    border-radius: 8px;
+    color: white;
+    background-color: #224f61;
+}
+.avatar {
+    text-align: center;
+}
+
+span {
+    color: brown;
+    font-size: 20px;
+}
+.inpt {
+    border: 0.5px solid rgba(226, 94, 94, 0.194);
+}

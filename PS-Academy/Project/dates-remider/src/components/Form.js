@@ -5,7 +5,7 @@ import { Col, Row } from "react-bootstrap";
 import DatesAction from "./DatesAction";
 import TerminContext from "../context/TerminContext";
 
-const DatesList = ({id,
+const Form = ({id,
     person,
     entfernVonList,
     onDelete,
@@ -14,8 +14,7 @@ const DatesList = ({id,
 }) => {
     const { termin,removeTermin,addTermin}= useContext(TerminContext)
 console.log(termin);
-    // const { id } = useParams();
-    // const product = person.find((i) => i.id === +id);
+
     const nameChange = (e, i) => {
         const abDatesPerson = [...person];
         abDatesPerson[i] = { ...person[i], name: e.target.value };
@@ -44,13 +43,9 @@ console.log(termin);
         <Row className="justify-content-center">
             <Col sm="12" className="">
                 <div className="rectangle p-2 ">
-                    {person.length ? (
-                        person.map((item, index) => {
-                            return (
-                                // <div key={Math.random()} className="d-flex wenn kein id
 
                                 <div
-                                    key={item.id}
+                                  
                                     className="  border-bottom mx-3 my-2   "
                                 >
                                     <div className="avatar">
@@ -68,9 +63,10 @@ console.log(termin);
                                         <br />
                                         <input
                                             className="inpt"
-                                            value={item.name}
+                                            
+                                           
                                             onChange={(e) =>
-                                                nameChange(e, index)
+                                                nameChange(e)
                                             }
                                             type="text"
                                             placeholder=" Name"
@@ -84,25 +80,21 @@ console.log(termin);
                                         <input
                                          
                                             className="inpt"
-                                            value={item.date}
-                                            onChange={(e) =>
-                                                dateChange(e, index)
-                                            }
+                                         
+                                          
                                             type="text"
                                             placeholder=" Datum"
                                         />
                                         <label>
                                             <span>Termin Beschreibung :</span>{" "}
                                         </label>{" "}
-                                  +      <br />
+                                     <br />
                                         <textarea
                                             className="inpt"
                                             rows="2"
                                             cols="0"
-                                            value={item.beschreibug}
-                                            onChange={(e) =>
-                                                beschreibungChange(e, index)
-                                            }
+                                            
+                                           
                                             placeholder=" Drück auf zeigen dann siehe die Beschreibung  "
                                         ></textarea>
 
@@ -112,46 +104,36 @@ console.log(termin);
                                     </form>
                                     <br />
 
-                                    {/* style={{
-                              display: ( (<Link to={"/termin/" + item.id}>
-                                             <button className="btn btn-primary ">
-                                                 zeigen
-                                             </button>
-                                         </Link>))?"none" : "block",
-                          }} */}
+                            
 
                                     <div className="d-flex justify-content-between">
-                                        <Link to={"/termin/" + item.id}>
+                                        <Link to={"/termin/" }>
                                             <button  className="btn btn-primary  my-3">
                                                 zeigen
                                             </button>
                                         </Link>
                                         <button
-                                           onClick={(e) =>addForm(e,index)
+                                           onClick={(e) =>addForm(e)
                                               
                                             }
                                             className="btn btn-primary my-3 "
                                         >
                                             Hinzufügen
                                         </button>
-                                        <button onClick={()=>addTermin(item.id)} className="btn btn-primary my-3 ">
+                                        <button onClick={()=>addTermin(id)} className="btn btn-primary my-3 ">
                                                 add
                                             </button>
                                      
                                     </div>
                                 </div>
-                            );
-                        })
-                    ) : (
-                        <h2 className="p-5 text-center">
-                            🤭 Es gibt keine Termine 🤭{" "}
-                        </h2>
-                    )}
-                    <DatesAction onDelete={onDelete} onViewData={onViewData} />
+                         
+                       
+                    
+               
                 </div>
             </Col>
         </Row>
     );
 };
 
-export default DatesList;
+export default Form;

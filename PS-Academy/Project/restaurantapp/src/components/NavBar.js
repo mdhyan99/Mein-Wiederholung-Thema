@@ -16,7 +16,7 @@ const NavBar = ({filterbySearch}) => {
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
                     <Navbar.Brand href="#">
-                        <div className="brand-color">Zena Restaurant</div>
+                        <div className="brand-color">ahmad Restaurant</div>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">

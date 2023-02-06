@@ -16,7 +16,7 @@ export const LikeProvider = ({ children }) => {
             const removeFav = like.filter((item) => item !== id);
             setLike(removeFav);
         } else {
-            const ind = 
+       
             setLike([...like, id]);
         }
     };

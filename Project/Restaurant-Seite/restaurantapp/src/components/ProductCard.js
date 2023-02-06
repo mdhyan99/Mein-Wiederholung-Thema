@@ -1,45 +1,54 @@
-import React,{useContext} from "react";
-import { Col, Card, Row } from "react-bootstrap";
-import { BsHeart } from "react-icons/bs";
-import { BiLike } from "react-icons/bi";
-import FavoriteContext from "../context/FavoriteContex";
+import React, { useContext } from "react";
+import { Col, Row } from "react-bootstrap";
+
+import { IoMdAdd } from "react-icons/io";
+
+import IconProdCard from "./IconProdCard";
+import ProductInfo from "./ProductInfo";
+import WarenKorbContext from "../context/WarenKorbContext";
+import { MdOutlineDeleteForever } from "react-icons/md";
+
+
 const ProductCard = ({ item }) => {
-    const { favoritep,addFav,removeFav,addLike,like}= useContext(FavoriteContext)
-    console.log(favoritep);
-
+    const { addKorb,cart } = useContext(WarenKorbContext);
     return (
-        
-                    <div className="d-flex  justify-content-between card  ">
-       
-                
-     <Row>
+        <div className="d-flex  justify-content-between card  ">
 
-           <Col>
-           {/* <img
-                    variant="top"
-                    className="img-item"
-                    src={item.imgUrl}
-                    alt="gff"
-                /> */}
-                <div>
-     <div className="d-flex justify-content-around"> <span className="item-title">{item.title}</span>
-                    <span className="item-price">{item.price}</span></div>
-                    <p className="item-description">
-                        {item.description}
-                    </p>
-                        <div className="d-flex justify-content-around">
-                <BsHeart onClick={()=> addFav(item.id)} />
-                    <BiLike onClick={()=> addLike(item.id)} />
-                    {like}
-                </div>
-          
-                </div>
-           
-        </Col>
-           </Row>
-        
-            </div>
-        
+             {/* für Preis un Beschreibun */}
+            <Row>
+                <Col>
+                  <ProductInfo item={item}/>
+                </Col>
+            </Row>
+
+                       {/* für Icon  */}
+            <div className="d-flex justify-content-between icon">
+                           <IconProdCard item={item}/>
+                       
+                                <div>
+                                {cart.includes(item.id) ? (
+
+                                   
+                                        <MdOutlineDeleteForever  className="icon-delet"     
+                                        onClick={() => addKorb(item.id)}
+                                         />
+                                    ):(
+
+                                        <IoMdAdd        style={{
+                                            color: "gray",
+                                            fontSize: "33px",
+                                        }}
+                                        onClick={() => addKorb(item.id)}
+                                         />
+                                    )
+                                }
+                                    </div>
+                             
+                                
+                                </div>
+                              
+              
+        </div>
     );
 };
 

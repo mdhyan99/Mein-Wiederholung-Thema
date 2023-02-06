@@ -11,9 +11,9 @@ const FavoriteProduct = () => {
  const data_ff= items.filter((item)=> favoritep.includes(item.id) )
 
   return (
-    <div>
-    
-    <Row md={2} xs={1} lg={4} className="g-3">
+    <div className="warenkorb">
+    <h1 className='title_h1'>Favorite Product</h1>
+    <Row md={1} xs={1} lg={1} className="g-3 ">
         {data_ff.map((item) => (
             <Col key={item.id}>
                 <ProductCard  item={item}/>

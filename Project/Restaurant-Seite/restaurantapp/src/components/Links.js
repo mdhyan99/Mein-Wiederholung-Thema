@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Links = () => {
   return (
-    <div bg="dark" variant="dark" className=" all">
+    <div bg="dark" variant="dark" className=" all-link">
                 <Link className="link" to="/">
                     <div>All</div>
                 </Link>

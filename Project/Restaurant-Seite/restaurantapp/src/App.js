@@ -9,12 +9,15 @@ import Category from "./components/Category";
 import { FavoriteProvider } from "./context/FavoriteContex";
 import FavoriteProduct from './components/FavoriteProduct'
 import ProductCard from "./components/ProductCard";
+import WarenKorb from "./components/WarenKorb";
+import{ WarenKorbProvider } from "./context/WarenKorbContext";
 
 
 function App() {
    
     return (
         <FavoriteProvider>
+            <WarenKorbProvider>
             <div>
                 <BrowserRouter>
                     <NavBar />
@@ -28,7 +31,7 @@ function App() {
                             <Category category="Getränke" />
                             </>
                         } />
-                        {/* <Route path="/pizza" element={<Pizza />} /> */}
+                     
                         <Route
                             path="/pizza"
                             element={<Category category="Pizza" />}
@@ -54,7 +57,11 @@ function App() {
                             element={<FavoriteProduct  />}
                         />
                          <Route
-                            path="/fproductCard"
+                            path="/warenkorb"
+                            element={<WarenKorb />}
+                        />
+                         <Route
+                            path="/productCard"
                             element={<ProductCard />}
                         />
                     </Routes>
@@ -62,6 +69,7 @@ function App() {
                 </BrowserRouter>
      
             </div>
+            </WarenKorbProvider>
         </FavoriteProvider>
     );
 }

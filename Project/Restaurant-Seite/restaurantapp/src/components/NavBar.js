@@ -11,7 +11,7 @@ import FavoriteContext from "../context/FavoriteContex";
 import WarenKorbContext from "../context/WarenKorbContext";
 
 const NavBar = () => {
-    const { cart} = useContext(WarenKorbContext);
+    const { cart, openCart} = useContext(WarenKorbContext);
 
     const {searchInput,setSearchInput} = useContext(FavoriteContext); // für Search
 
@@ -40,10 +40,14 @@ const NavBar = () => {
             <Link className="link" to="/favoriteproduct">
                 <AiOutlineHeart className="korp" />
                 </Link>
-                <Link to="/warenkorb">
-                <BsCartCheck className="korp" />
-                <span className="span-like">{cart.length}</span>
-                </Link>
+                {/* <Link to="/warenkorb"> */}
+            
+               <div>
+               <BsCartCheck className="korp" onClick={openCart} />
+            
+            <span className="span-like">{cart.length}</span> 
+               </div>
+                {/* </Link> */}
             </div>
 <Links />
             

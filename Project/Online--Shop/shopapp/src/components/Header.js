@@ -4,8 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { FiHeart } from "react-icons/fi";
 import { BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import FavoriteContext from "../context/FavoriteContext";
 
 function Header() {
+    const {setSearchInput,searchInput} =useContext(FavoriteContext)
+
     return (
         <Navbar sticky="top" bg="black">
             <Container>
@@ -35,10 +39,12 @@ function Header() {
                 </section>
 
                 <input
+                    value={searchInput}
                     type="search"
                     placeholder="Search"
                     className="searchInput"
                     aria-label="Search"
+                    onChange={(e)=> setSearchInput(e.target.value)}
                 />
 
                 <div></div>

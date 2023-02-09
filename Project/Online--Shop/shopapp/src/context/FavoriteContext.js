@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect } from "react";
 const FavoriteContext = createContext();
 
 export const FavoriteProvider = ({ children }) => {
+const [searchInput, setSearchInput] = useState("");
+
     const [favorite, setFavorite] = useState(
         JSON.parse(localStorage.getItem("favorite")) || []
     );
@@ -25,6 +27,8 @@ export const FavoriteProvider = ({ children }) => {
             value={{
                 favorite,
                 addFav,
+                searchInput,
+                setSearchInput
             }}
         >
             {children}

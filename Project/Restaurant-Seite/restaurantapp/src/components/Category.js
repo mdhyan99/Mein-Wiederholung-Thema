@@ -16,17 +16,19 @@ const Category = ({ category }) => {
     // return (
 
     return searchInput === "" ? (
-        <div className="card d-flex justify-content-between g-3">
+        <div className="card d-flex justify-content-between g-3 category-top">
             <Row md={1} xs={1} lg={1} className="g-4">
                 {/* { category ?
                (<img src={data_Category[0].imgUrl} alt={data_Category.title} />): null} */}
                 {/* // Oder */}
+                <h1 className="title_h1">{data_Category[0].category}</h1>
                 {category && (
+                   
                     <img
                         src={data_Category[0].imgUrl}
                         alt={data_Category[0].title}
                     />
-                )}
+                ) }
                 {data_Category.map((item) => (
                     <ProductCard key={item.id} item={item} />
                 ))}
@@ -35,7 +37,8 @@ const Category = ({ category }) => {
     ) : (
         // für search  hier zeigt uns was wir suchen in Startseite
 
-        <Row md={2} xs={1} lg={4} className="g-3">
+       <div className="category-top">
+         <Row md={2} xs={1} lg={4} className="g-3 ">
             {items
                 .filter((el) =>
                     el.title.toLowerCase().includes(searchInput.toLowerCase())
@@ -48,6 +51,7 @@ const Category = ({ category }) => {
                     );
                 })}
         </Row>
+       </div>
     );
 };
 

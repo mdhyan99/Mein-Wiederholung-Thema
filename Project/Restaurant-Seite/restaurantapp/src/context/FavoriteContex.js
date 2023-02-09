@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 
-
 const FavoriteContext = createContext();
 
 export const FavoriteProvider = ({ children }) => {
@@ -56,6 +55,7 @@ export const FavoriteProvider = ({ children }) => {
             }}
         >
             {children}
+            
         </FavoriteContext.Provider>
     );
 };

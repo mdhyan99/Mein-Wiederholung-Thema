@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Button, Card, Row, Col } from "react-bootstrap";
 
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { BiLike, BiDislike } from "react-icons/bi";
+import { BiLike} from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
+import { AiFillHeart} from "react-icons/ai";
 
 import FavoriteContext from "../context/FavoriteContext";
 
@@ -12,13 +12,13 @@ const ProductCard = ({ item }) => {
     const {favorite,addFav} =useContext(FavoriteContext)
     console.log(favorite);
     return (
-        <Row className="g-3">
+        <Row className="g-3 start">
             <Col>
                 <Card className="h-100">
                     <Card.Img
+                    className="img"
                         variant="top"
                         src={item.picture2}
-                        style={{ height: "400px", objectFit: "cover" }}
                     />
 
                     <Card.Body className="d-flex flex-column">
@@ -38,7 +38,7 @@ const ProductCard = ({ item }) => {
                                 className="d-flex align-items-center flex-column"
                                 style={{ gap: "0.5rem" }}
                             >
-                                <div
+                                {/* <div
                                     className="d-flex align-items-center justify-content-center"
                                     style={{ gap: "0.4rem" }}
                                 >
@@ -50,10 +50,10 @@ const ProductCard = ({ item }) => {
                                         </span>
                                     </div>
                                     <Button>+</Button>
-                                </div>
-                                <Button>
+                                </div> */}
+                                {/* <Button>
                                     <RiDeleteBin5Line />
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
 
@@ -67,7 +67,9 @@ const ProductCard = ({ item }) => {
 
                             <div>
                                 <button>
-                                    <FiHeart onClick={()=>addFav(item.id)} />
+                                    {favorite.includes(item.id)?(<AiFillHeart onClick={()=>addFav(item.id)} style={{color:"red"}}  />):(
+                                        <FiHeart onClick={()=>addFav(item.id)} style={{color:"gray"}} />
+                                    )}
                                 </button>
                                 <button
                                     onClick={(event) => {

@@ -5,10 +5,15 @@ body {
     margin: 0;
     padding: 0;
 }
+/* category css  */
 .start{
   padding: 15px;
-  text-align: center;
 }
+.start img{
+    padding: 15px;
+    aspect-ratio: 1/1;
+
+  }
 .link1 {
     font-size: 17px;
     display: flex;
@@ -20,7 +25,16 @@ body {
     color: rgb(142, 112, 112);
     text-decoration: none;
 }
+/* favoriteproduct css */
+.favorite-product{
+    padding: 20px;
 
+}
+.title_h1{
+    text-align: center;
+    margin-top: 20px;
+    color: darkgoldenrod;
+}
 .link:hover {
     color: rgb(235, 188, 188);
 }

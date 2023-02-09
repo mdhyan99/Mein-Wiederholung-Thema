@@ -12,6 +12,9 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 const ProductCard = ({ item }) => {
     const { addKorb,cart } = useContext(WarenKorbContext);
     return (
+        <div className="">
+
+       
         <div className="d-flex  justify-content-between card  ">
 
              {/* für Preis un Beschreibun */}
@@ -48,6 +51,7 @@ const ProductCard = ({ item }) => {
                                 </div>
                               
               
+        </div>
         </div>
     );
 };

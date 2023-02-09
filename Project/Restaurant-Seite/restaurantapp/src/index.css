@@ -11,7 +11,6 @@ body {
 .sticky {
     position: fixed;
     width: 100%;
-    
     top: 0;
     z-index: 1;
     background-color: aliceblue;
@@ -37,6 +36,8 @@ body {
 
 /* Links css  */
 .all-link {
+   bottom: 120px;
+
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -54,10 +55,12 @@ body {
 }
 
 /* Categroy css */
+.category-top{
+top: 150px;
+}
 .card {
     text-align: center;
     padding: 30px;
-    margin-top: 100px;
 }
 .card img {
     aspect-ratio: 6/1;
@@ -94,6 +97,7 @@ body {
 
 /* ProductCard */
 
+
 .icon-delet {
     color: rgb(163, 48, 48);
     font-size: 22px;
@@ -112,18 +116,21 @@ body {
     padding-left: 35px;
 }
 
+
 /* warenkorb FavoritProduct css */
 .title_h1 {
     text-align: center;
     color: #ecd562;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 .warenkorb {
     padding: 50px;
+    margin-top: 120px;
 }
 
 .border {
     border: 1px solid gray;
     padding: 30px;
+}
+.total-korb{
+    margin-top: 50px;
 }

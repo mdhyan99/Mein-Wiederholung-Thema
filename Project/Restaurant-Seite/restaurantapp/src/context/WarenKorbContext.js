@@ -1,8 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
+import WarenKorb from "../components/WarenKorb";
 const WarenKorbContext = createContext();
 
 export const WarenKorbProvider = ({ children }) => {
-
+    const [isOpen, setIsOpen] = useState(false);
     // für product in warenkorb
     const [cart, setCart] = useState(
         JSON.parse(localStorage.getItem("cart")) || []
@@ -28,17 +29,27 @@ export const WarenKorbProvider = ({ children }) => {
    
     };
  
-
+    const openCart = () => {
+        setIsOpen(true);
+      };
+      const closeCart = () => {
+        setIsOpen(false);
+      };
+    
     return (
         <WarenKorbContext.Provider
             value={{
                 cart,
                 setCart,
                 addKorb,
+                openCart,
+                closeCart,
+               
                
             }}
         >
             {children}
+            <WarenKorb isOpen={isOpen}  />
         </WarenKorbContext.Provider>
     );
 };

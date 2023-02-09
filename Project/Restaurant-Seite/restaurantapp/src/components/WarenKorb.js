@@ -1,58 +1,67 @@
 import React, { useContext } from "react";
 
-import { Col, Row } from "react-bootstrap";
-import { MdOutlineDeleteForever } from "react-icons/md";
+import { Button, Offcanvas,  Stack } from "react-bootstrap";
 
 import { items } from "../data";
-import ProductInfo from "./ProductInfo";
-import IconProdCard from "./IconProdCard";
+
 import WarenKorbContext from "../context/WarenKorbContext";
 
-const WarenKorb = () => {
-    const { cart, addKorb } = useContext(WarenKorbContext);
+const WarenKorb = ({ isOpen }) => {
+    const { cart, addKorb, closeCart } = useContext(WarenKorbContext);
     const data_Cart = items.filter((item) => cart.includes(item.id));
-
+console.log(cart);
     return (
-        <div className="warenkorb">
-            <h1 className="title_h1">Warenkorb Product</h1>
-
-            {/* für Preis un Beschreibun */}
-            <Row md={1} xs={1} lg={1} className="g-3 ">
-                {data_Cart.map((item) => (
-                    <Col className="border" key={item.id}>
-                        <Row className="g-3 justify-content-between ">
-                            <Col>
-                                <ProductInfo item={item} />
-                            </Col>
-                        </Row>
-
-                        {/* für Icon  */}
-                        <div className="d-flex justify-content-between icon">
-                            <IconProdCard item={item} />
-
-                            <div>
-                                <MdOutlineDeleteForever
-                                  className="icon-delet"
-                                    onClick={() => addKorb(item.id)}
-                                />
+        <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+            <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Warenkorb</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+                <Stack gap={3}>
+                    {data_Cart.map((item) => (
+                        <Stack
+                        key={item.id}
+                            direction="horizontal"
+                            gap={2}
+                            className="d-flex align-items-center"
+                        >
+                            <img
+                                src={item.imgUrl}
+                                alt="cart-img"
+                                style={{
+                                    width: "125px",
+                                    height: "75px",
+                                    objectFit: "cover",
+                                }}
+                            />
+                            <div className="me-auto">
+                                <div>{item.title} </div>
+                                <div
+                                    className="text-muted"
+                                    style={{ fontSize: "0.75rem" }}
+                                >
+                                    {item.price}
+                                </div>
                             </div>
-                        </div>
-                    </Col>
-                ))}
-            </Row>
-        </div>
+                            <div>{item.price}</div>
+                            <Button
+                                variant="outline-danger"
+                                size="sm"
+                                onClick={() => addKorb(item.id)}
+                            >
+                                &times;
+                            </Button>
+                        </Stack>
+                    ))}
+                    <div className="ms-auto fw-bold fs-5">
+                        Total:
+                        {data_Cart.reduce((total, cartItem) => {
+                                return total + cartItem.price;
+                            }, 0).toFixed(2)} €
+                    </div>
+                </Stack>
+            </Offcanvas.Body>
+        </Offcanvas>
     );
 };
 
 export default WarenKorb;
-//  <div className="ms-auto fw-bold spanText">
-//               {/* {item.price } * {data_Cart.length} */}
-
-//               {data_Cart.reduce((total, cartItem) => {
-//                 const item = items.find(
-//                   (i) => i.id === cartItem.id
-//               );
-//                       return (total + cartItem.price  )
-//                         },0)}
-//                         €
-//                     </div>

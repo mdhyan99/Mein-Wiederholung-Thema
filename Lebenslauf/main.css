@@ -9,6 +9,11 @@ main {
     display: flex;
     justify-content: center;
     max-width: 800px;
+    text-align: center;
+    /* border: 1px solid  gray; */
+   margin: auto auto;
+   margin-top: 50px;
+   padding: 20px;
 }
 nav{
     background-color:rgba(181, 175, 175, 0.81);

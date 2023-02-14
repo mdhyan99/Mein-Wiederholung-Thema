@@ -9,7 +9,7 @@ body {
 /* NavBar css */
 
 .sticky {
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 1;
@@ -36,7 +36,6 @@ body {
 
 /* Links css  */
 .all-link {
-   bottom: 120px;
 
     display: flex;
     gap: 10px;
@@ -55,9 +54,7 @@ body {
 }
 
 /* Categroy css */
-.category-top{
-top: 150px;
-}
+
 .card {
     text-align: center;
     padding: 30px;
@@ -98,15 +95,12 @@ top: 150px;
 /* ProductCard */
 
 
-.icon-delet {
-    color: rgb(163, 48, 48);
-    font-size: 22px;
-}
+
 
 /* IconProd css */
 .span-like {
     color: rgb(163, 48, 48);
-    font-size: 13px;
+    font-size: 23px;
     position: absolute;
     margin-top: 12px;
 }
@@ -114,6 +108,8 @@ top: 150px;
 .icon {
     margin-top: 25px;
     padding-left: 35px;
+    cursor: pointer;
+
 }
 
 
@@ -124,7 +120,6 @@ top: 150px;
 }
 .warenkorb {
     padding: 50px;
-    margin-top: 120px;
 }
 
 .border {

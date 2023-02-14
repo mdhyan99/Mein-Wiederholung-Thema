@@ -6,10 +6,17 @@ import { items } from "../data";
 
 import WarenKorbContext from "../context/WarenKorbContext";
 
-const WarenKorb = ({ isOpen }) => {
-    const { cart, addKorb, closeCart } = useContext(WarenKorbContext);
-    const data_Cart = items.filter((item) => cart.includes(item.id));
-console.log(cart);
+const WarenKorb = () => {
+    const { cart, closeCart,removeKorb ,isOpen } = useContext(WarenKorbContext);
+    // const data_Cart = items.filter((item) => cart.includes(item.id));
+    const data_Cart = cart.map((cartItem)=>{
+        const product=items.find((item)=> item.id === cartItem.id);
+        return{
+            ...product,
+            ...cartItem,
+        }
+    })
+console.log( cart);
     return (
         <Offcanvas show={isOpen} onHide={closeCart} placement="end">
             <Offcanvas.Header closeButton>
@@ -39,14 +46,14 @@ console.log(cart);
                                     className="text-muted"
                                     style={{ fontSize: "0.75rem" }}
                                 >
-                                    {item.price}
+                                    {item.quantity}x {item.price}
                                 </div>
                             </div>
-                            <div>{item.price}</div>
+                            <div>{item.quantity*item.price}</div>
                             <Button
                                 variant="outline-danger"
                                 size="sm"
-                                onClick={() => addKorb(item.id)}
+                                onClick={() => removeKorb(item.id)}
                             >
                                 &times;
                             </Button>
@@ -55,7 +62,7 @@ console.log(cart);
                     <div className="ms-auto fw-bold fs-5">
                         Total:
                         {data_Cart.reduce((total, cartItem) => {
-                                return total + cartItem.price;
+                                return total + cartItem.price * cartItem.quantity;
                             }, 0).toFixed(2)} €
                     </div>
                 </Stack>

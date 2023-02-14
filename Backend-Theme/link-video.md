@@ -25,6 +25,9 @@ https://expressjs.com/en/5x/api.html
    www.stepstone.de
    www.indeed.de
 
+
+## mediserv Bnk Gmbh link
+https://www.stepstone.de/stellenangebote--Frontend-Entwickler-m-w-d-Saarbruecken-mediserv-Bank-GmbH--9129799-inline.html?rltr=9_9_25_seorl_s_0_0_0_0_1_0
    ## backend
    https://www.db-fiddle.com/ 
    für SQL

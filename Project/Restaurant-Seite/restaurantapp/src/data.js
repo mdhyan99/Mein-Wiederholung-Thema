@@ -20,7 +20,7 @@ export const items = [
     {
         id: 3,
         category: "Dönner",
-        title: "Dönner",
+        title: "Döner",
         description:
             "Frische Brötchen, Wurst- und Käseauswahl, Marmelade/Honig, gekochtes Ei, Butter, frisches Obst, Kaffee/Tee inklusive",
         price:5.99,

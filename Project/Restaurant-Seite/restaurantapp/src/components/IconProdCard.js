@@ -18,16 +18,17 @@ const IconProdCard = ({ item }) => {
                 {favoritep.includes(item.id) ? (
                     <AiFillHeart
                         onClick={() => addFav(item.id)}
-                        style={{ color: "red" }}
+                        style={{ color: "red" ,fontSize:"39px"}}
                     />
                 ) : (
-                    <BsHeart onClick={() => addFav(item.id)} />
+                    <BsHeart onClick={() => addFav(item.id)} style={{ color: "" ,fontSize:"33px"}} />
                 )}
             </div>
             <div>
                 <BiLike
                     className="like-icon"
                     onClick={() => addLike(item.id)}
+                    style={{ color: "" ,fontSize:"43px"}}
                 />
                 <span className="span-like">{like[item.id]}</span>
             </div>

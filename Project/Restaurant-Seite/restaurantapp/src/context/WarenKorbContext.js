@@ -13,29 +13,39 @@ export const WarenKorbProvider = ({ children }) => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
- // für add produckt in Warenkorb
+    // für add produckt in Warenkorb
     const addKorb = (id) => {
-        if (cart.find((item) => item === id)) {
-             
-            const removeKorb = cart.filter((item)=> item !== id )
+        const item = cart.find((item) => item.id === id);
 
-            setCart(removeKorb)
+        if (item) {
+            item.quantity++;
+            setCart([...cart]);
+        } else {
+            setCart([...cart, { id, quantity: 1 }]);
         }
-
-        else {
-
-        setCart([...cart, id]);
-       }
-   
     };
- 
+    // für remove produckt in Warenkorb
+    const removeKorb = (id) => {
+        const item = cart.find((item) => item.id === id);
+        
+        if (item) {
+            item.quantity--;
+            if (item.quantity <= 0) {
+                setCart(cart.filter((item) => item.id !== id));
+            } else {
+                setCart([...cart]);
+                console.log({ cart });
+            }
+        }
+    };
+
     const openCart = () => {
         setIsOpen(true);
-      };
-      const closeCart = () => {
+    };
+    const closeCart = () => {
         setIsOpen(false);
-      };
-    
+    };
+
     return (
         <WarenKorbContext.Provider
             value={{
@@ -44,12 +54,12 @@ export const WarenKorbProvider = ({ children }) => {
                 addKorb,
                 openCart,
                 closeCart,
-               
-               
+                removeKorb,
+                isOpen,
             }}
         >
             {children}
-            <WarenKorb isOpen={isOpen}  />
+            {/* <WarenKorb isOpen={isOpen}  /> */}
         </WarenKorbContext.Provider>
     );
 };

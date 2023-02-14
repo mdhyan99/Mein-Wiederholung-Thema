@@ -69,6 +69,8 @@ function App() {
                 </BrowserRouter>
      
             </div>
+            <WarenKorb />
+
             </WarenKorbProvider>
         </FavoriteProvider>
     );

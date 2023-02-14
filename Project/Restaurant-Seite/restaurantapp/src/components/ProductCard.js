@@ -29,22 +29,20 @@ const ProductCard = ({ item }) => {
                            <IconProdCard item={item}/>
                        
                                 <div>
-                                {cart.includes(item.id) ? (
+                          
 
                                    
-                                        <MdOutlineDeleteForever  className="icon-delet"     
-                                        onClick={() => addKorb(item.id)}
-                                         />
-                                    ):(
+                                        
+                                   
 
                                         <IoMdAdd        style={{
                                             color: "gray",
-                                            fontSize: "33px",
+                                            fontSize: "40px",
                                         }}
                                         onClick={() => addKorb(item.id)}
                                          />
-                                    )
-                                }
+                                 
+                               
                                     </div>
                              
                                 

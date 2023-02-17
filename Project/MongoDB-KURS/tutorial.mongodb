@@ -40,7 +40,7 @@ db.products.drop() // true
 
 db.product.insertOne(
     {
-        name:"Banane",
+        name:"Banane süß gelb",
         price:0.99,
         category:"Obst",
         views:16
@@ -62,13 +62,13 @@ db.products.insertMany(
         views:10
     },
          {
-        name:"Banane",
+        name:"Banane süß grün",
         price:0.99,
         category:"Obst",
         views:9
     },
        {
-        name:"Kiwi",
+        name:"Kiwi süß",
         price:0.70,
         category:"Obst",
         views:3,
@@ -118,6 +118,37 @@ db.products.find().forEach((doc) => {
  db.products.find({price:{$gte :0.8}}) // zeigt die >= 0.80
  db.products.find({price:{$lt:0.8}}) // zeigt die <0.80
  db.products.find({price:{$lte:0.8}}) // zeigt die <= 0.80
+ /*
+equal =eq
+not equal =ne
+greater than = gt
+greater than or equal to  = gte
+less than = lt
+less than or equal to = lte
+in (25,30,35) = in
+not in = nin
+
+*/
+
+
+// suchen in Document
+ db.products..find({author:/^Banane/i}) // zeigt alle mit name estartet mit Banane 
+ db.products..find({author:/grün$/i}) // zeigt alle mit name endet mit grün
+ db.products..find({author:/.*süß.*/i}) // zeigt alle mit name enthält mi süß
+
+ // such nach in Browser
+  app.get("/about",(req,res)=>{  //  wenn wir suchen nach localhost:4000/about  zeigt uns about seite
+     res.send("Our about seite ${4000}")
+ }) 
+
+app.get("/ab?cd",(req,res)=>{  //  wenn wir suchen nach localhost:4000/abcd   zeigt uns ab?cd seite aber bei /abbcd zeigt uns fehler dass bedeudet entweder one b oder kein b
+     res.send("Our /ab?cd seite ${4000}")
+ }) 
+// ab?cd  b one oder gannicht
+// ab(cd)?cd  die innerhalb () muss wie ein buchstaben oder grupp behandel
+// ab+cd b one oder mehr
+// ab*cd statt * egal was wir schreiben
+// /a/ was wir schreiben nach / muss a auch inhält
 
 // Index anlegen 
 db.products.createIndex(
